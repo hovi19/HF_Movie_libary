@@ -17,5 +17,8 @@ public class Series extends Movie{
 	public int getEpisodes() {
 		return episodes;
 	}
+	public String toString() {
+		return super.toString() + "," + seasons + "," +  episodes;
+	}
 	
 }

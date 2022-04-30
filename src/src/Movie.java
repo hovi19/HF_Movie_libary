@@ -38,6 +38,10 @@ public class Movie {
 	public void setSeen(boolean seen) {
 		this.seen = seen;
 	}
+	public String toString() {
+		return title + "," + genre + "," + length + "," + year + ","
+				+ ageRating + "," + seen; 
+	}
 	
 	
 }

@@ -10,4 +10,8 @@ public class Documentary extends Movie{
 	}
 
 	public String getDescription() {return description;}
+	
+	public String toString() {
+		return super.toString() + "," + description;
+	}
 }
