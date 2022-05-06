@@ -70,6 +70,13 @@ public class Commands {
 					}
 				});
 			}
+			if (cmd[1].equals("not seen")) {
+				movies.forEach((n) -> {
+					if (!n.isSeen()) {
+						System.out.println(n);
+					}
+				});
+			}
 		} catch (Exception e) {
 			movies.forEach((n) -> {
 				System.out.println(n);
@@ -79,13 +86,43 @@ public class Commands {
 
 	}
 
+	
 	private static void cmdSearch(String[] cmd, Collection<Movie> movies) {
-		// TODO Auto-generated method stub
-
+		try{
+			if(cmd[1].equals("genre")) {
+				movies.forEach(n ->{
+					if(n.getGenre().contains(cmd[2])) {
+						System.out.println(n);
+					}
+				});
+			}
+			if(cmd[1].equals("ageRating")) {
+				movies.forEach(n ->{
+					if(n.getAgeRating()<= Integer.parseInt(cmd[2])) {
+						System.out.println(n);
+					}
+				});
+			}
+			else {
+				movies.forEach(n ->{
+					if(n.getTitle().toLowerCase().contains(cmd[1].toLowerCase())) {
+						System.out.println(n);
+					}
+				});
+			}	
+		}
+		catch(Exception e) {
+			System.out.println("hibás keresés");
+		}
 	}
 
 	private static void cmdSeen(String[] cmd, Collection<Movie> movies) {
-		// TODO Auto-generated method stub
+		movies.forEach(n ->{
+			if(n.getTitle().toLowerCase().contains(cmd[1].toLowerCase())) {
+				n.setSeen(true);
+				System.out.println(n.getTitle() + " megtekintve");
+			}
+		});
 
 	}
 
